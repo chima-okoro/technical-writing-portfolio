@@ -1,0 +1,445 @@
+# JANO Agrilogistics — Developer Onboarding Guide
+
+**Version:** 1.0  
+**Last Updated:** March 2026  
+**Audience:** Mid-level Developers  
+**Work Model:** Remote-First
+
+---
+
+# 1. Welcome Overview
+
+Welcome to **JANO Agrilogistics**. We are excited to have you join the engineering team.
+
+This guide helps new developers quickly set up their environment, understand the codebase, and begin contributing to the product.
+
+---
+
+## Company Mission
+
+JANO Agrilogistics builds technology that **connects farmers, logistics providers, and buyers** across agricultural supply chains.
+
+Our mission is to:
+
+- Improve **farm-to-market logistics**
+- Reduce **transport inefficiencies**
+- Enable **data-driven agricultural distribution**
+
+We aim to make agricultural logistics **transparent, efficient, and scalable**.
+
+---
+
+## Product Summary
+
+JANO Agrilogistics is a platform that helps:
+
+- Farmers schedule product shipments
+- Logistics partners manage delivery routes
+- Buyers track agricultural product deliveries
+
+Core capabilities include:
+
+- Shipment scheduling
+- Route tracking
+- Warehouse coordination
+- Delivery analytics
+
+---
+
+## Tech Stack Overview
+
+The current platform uses a modern cloud-based architecture.
+
+| Layer | Technology |
+|------|------|
+| Frontend | React / Next.js |
+| Backend | Node.js / Express |
+| Database | PostgreSQL |
+| Cache | Redis |
+| Infrastructure | AWS |
+| Containerization | Docker |
+| CI/CD | GitHub Actions |
+| Monitoring | Datadog |
+
+---
+
+# 2. Access Setup
+
+During onboarding, you will receive access to key systems.
+
+If you do not receive access within **24 hours**, contact the engineering manager.
+
+---
+
+## Email
+
+Your company email will be created through **Google Workspace**.
+
+Example format:
+firstname.lastname@janoagri.com
+
+
+Use this email for:
+
+- GitHub
+- Slack
+- Project tools
+- Documentation platforms
+
+---
+
+## GitHub Access
+
+All source code is hosted on GitHub.
+
+Steps:
+
+1. Accept the GitHub organization invitation.
+2. Enable **two-factor authentication (2FA)**.
+3. Clone the required repositories.
+
+Main repositories include:
+
+- `jano-platform-api`
+- `jano-frontend`
+- `jano-infrastructure`
+
+---
+
+## Project Management Tool
+
+We use **Jira** for project and sprint management.
+
+You will receive access to:
+
+- Engineering backlog
+- Sprint boards
+- Bug tracking
+
+Typical ticket types include:
+
+- Feature
+- Bug
+- Task
+- Technical Debt
+
+---
+
+## Communication Tool
+
+Team communication occurs in **Slack**.
+
+Important channels include:
+
+- `#engineering`
+- `#backend`
+- `#frontend`
+- `#deployments`
+- `#incidents`
+
+Always monitor **#deployments** and **#incidents** during work hours.
+
+---
+
+## CI/CD Access
+
+Continuous integration runs through **GitHub Actions**.
+
+You will have access to:
+
+- Build pipelines
+- Deployment logs
+- Test reports
+
+Deployment environments:
+
+- Development
+- Staging
+- Production
+
+---
+
+# 3. Development Environment Setup
+
+Follow the steps below to configure your local environment.
+
+---
+
+## Required Software
+
+Install the following tools:
+
+- Node.js (v18 or later)
+- Docker
+- Git
+- VS Code or preferred IDE
+- PostgreSQL
+- Postman or API client
+
+Verify installation:
+
+node -v
+npm -v
+git --version
+docker --version
+
+
+---
+
+## Cloning the Repository
+
+Clone the main project repository.
+
+git clone https://github.com/jano-agri/jano-platform-api.git
+
+cd jano-platform-api
+
+Install dependencies:
+
+npm install
+
+---
+
+## Environment Variables
+
+Create a `.env` file in the root directory.
+
+Example configuration:
+
+PORT=4000
+DATABASE_URL=postgres://localhost:5432/jano_dev
+REDIS_URL=redis://localhost:6379
+JWT_SECRET=your_secret_key
+
+
+Do not commit `.env` files to the repository.
+
+---
+
+## Running the Application Locally
+
+Start the development server:
+
+npm run dev
+
+The API will run on:
+
+http://localhost:4000
+
+
+---
+
+## Running Tests
+
+Run automated tests using:
+
+npm test
+
+Expected output:
+
+All tests passed
+
+
+Tests must pass before submitting pull requests.
+
+---
+
+# 4. Codebase Structure Overview
+
+The backend project follows a modular structure.
+
+src/
+├── controllers/
+├── services/
+├── routes/
+├── models/
+├── middleware/
+├── utils/
+└── config/
+
+
+Directory descriptions:
+
+| Folder | Purpose |
+|------|------|
+| controllers | Handle API request logic |
+| services | Business logic layer |
+| routes | API endpoint definitions |
+| models | Database models |
+| middleware | Authentication and request handling |
+| utils | Helper functions |
+| config | Environment configuration |
+
+---
+
+# 5. Deployment Workflow
+
+Code changes follow a controlled deployment process.
+
+1. Create a feature branch.
+2. Commit changes.
+3. Open a pull request.
+4. Run automated tests.
+5. Merge into `develop`.
+6. Deploy to **staging**.
+7. QA validation.
+8. Merge to **main** for production deployment.
+
+Deployment pipeline example:
+
+Feature Branch → Pull Request → CI Tests → Staging → Production
+
+
+---
+
+# 6. Coding Standards
+
+To maintain consistency, follow these guidelines.
+
+General rules:
+
+- Use **clear variable names**
+- Write **modular functions**
+- Add **comments for complex logic**
+
+JavaScript conventions:
+
+- Use **ES6+ syntax**
+- Prefer **async/await**
+- Use **camelCase naming**
+
+Example:
+
+async function createShipment(data) {
+return shipmentService.create(data);
+}
+
+
+Formatting is enforced using:
+
+- ESLint
+- Prettier
+
+Run the linter:
+
+npm run lint
+
+
+---
+
+# 7. Pull Request Process
+
+All code changes must go through pull requests.
+
+Steps:
+
+1. Create a feature branch.
+
+git checkout -b feature/shipment-tracking
+
+2. Commit your changes.
+
+3. Push to GitHub.
+
+git push origin feature/shipment-tracking
+
+
+4. Open a **Pull Request (PR)**.
+
+---
+
+## Pull Request Requirements
+
+A valid PR must include:
+
+- Clear description
+- Related Jira ticket
+- Screenshots (if UI changes)
+- Passing tests
+
+At least **one engineering approval** is required before merging.
+
+---
+
+# 8. Issue Tracking & Sprint Process
+
+Engineering follows **two-week sprint cycles**.
+
+Each sprint includes:
+
+- Sprint planning
+- Development
+- Code reviews
+- QA testing
+- Sprint retrospective
+
+Issue workflow:
+
+Backlog → Ready → In Progress → Code Review → QA → Done
+
+
+Developers should update issue status regularly.
+
+---
+
+# 9. Documentation Guidelines
+
+Documentation is essential for a remote engineering team.
+
+All engineers are expected to:
+
+- Document APIs
+- Update README files
+- Add comments to complex logic
+
+Documentation tools include:
+
+- Markdown
+- Notion
+- Swagger / OpenAPI
+
+Example API documentation snippet:
+
+GET /shipments/{id}
+
+Returns shipment details.
+
+
+---
+
+# 10. First Week Checklist
+
+Use this checklist to track your onboarding progress.
+
+### Account Setup
+
+- [ ] Company email activated
+- [ ] GitHub access granted
+- [ ] Jira access confirmed
+- [ ] Slack access configured
+
+### Development Setup
+
+- [ ] Repository cloned
+- [ ] Environment variables configured
+- [ ] Application runs locally
+- [ ] Tests run successfully
+
+### Product Familiarity
+
+- [ ] Review platform architecture
+- [ ] Read API documentation
+- [ ] Join engineering Slack channels
+
+### First Contribution
+
+- [ ] Select a beginner-friendly issue
+- [ ] Submit first pull request
+- [ ] Receive code review feedback
+
+---
+
+Welcome again to **JANO Agrilogistics Engineering**.
+
+We look forward to your contributions in building scalable technology for the agricultural logistics industry.
+
