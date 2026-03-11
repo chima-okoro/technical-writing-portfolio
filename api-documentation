@@ -1,0 +1,418 @@
+# Payment Processing API Documentation
+
+**Version:** v1.0  
+**Base URL:** `https://api.payflowcloud.com/v1`  
+**Authentication:** API Key (Bearer Token)
+
+---
+
+# Overview
+
+## Purpose of the API
+The **Payment Processing API** allows developers to integrate secure payment capabilities into web and mobile applications. It enables applications to create charges, manage payments, process refunds, and retrieve transaction data.
+
+The API is designed for **SaaS platforms, e-commerce applications, fintech services, and subscription-based products**.
+
+---
+
+## Common Use Cases
+
+Developers typically use the API for:
+
+- Processing **one-time payments**
+- Handling **subscription billing**
+- Issuing **refunds**
+- Retrieving **transaction history**
+- Verifying **payment status**
+- Automating **payment notifications**
+
+---
+
+## Version Information
+
+| Version | Status | Notes |
+|------|------|------|
+| v1 | Stable | Current production version |
+
+Future API versions will maintain **backward compatibility** where possible.
+
+---
+
+# Authentication
+
+The API uses **API Key authentication with Bearer tokens**.
+
+All requests must include the API key in the **Authorization header**.
+
+---
+
+## How to Obtain Credentials
+
+1. Create a developer account.
+2. Navigate to **Developer Dashboard → API Keys**
+3. Generate your **Secret API Key**
+
+Example:
+sk_live_91dhdh82hdk2hd82h
+
+Keep this key secure. Never expose it in frontend code.
+
+---
+
+## Required Headers
+
+| Header | Description |
+|------|------|
+| Authorization | Bearer API Key |
+| Content-Type | application/json |
+
+Example:
+Authorization: Bearer sk_live_91dhdh82hdk2hd82h
+Content-Type: application/json
+
+---
+
+## Example Authenticated Request
+
+```bash
+curl https://api.payflowcloud.com/v1/payments \
+  -H "Authorization: Bearer sk_live_91dhdh82hdk2hd82h" \
+  -H "Content-Type: application/json"
+
+---
+
+
+# Endpoints
+
+Create Payment
+
+## HTTP Method
+POST
+---
+
+## URL
+/payments
+
+---
+
+## Description
+Creates a new payment transaction.
+
+---
+
+## Request Parameters
+
+| Parameter      | Type    | Required | Description                              |
+| -------------- | ------- | -------- | ---------------------------------------- |
+| amount         | integer | Yes      | Payment amount in smallest currency unit |
+| currency       | string  | Yes      | Currency code (USD, EUR, NGN)            |
+| customer_id    | string  | Yes      | Unique customer identifier               |
+| payment_method | string  | Yes      | Card, bank_transfer, wallet              |
+| description    | string  | No       | Transaction description                  |
+
+---
+
+## JSON Request Example
+
+{ 
+  "amount": 5000,
+  "currency": "USD",
+  "customer_id": "cus_847382",
+  "payment_method": "card",
+  "description": "Premium subscription"
+}
+
+---
+
+## JSON Response Example
+
+{
+  "id": "pay_9384723",
+  "status": "succeeded",
+  "amount": 5000,
+  "currency": "USD",
+  "customer_id": "cus_847382",
+  "created_at": "2026-03-11T10:20:45Z"
+}
+
+---
+
+## Error Responses
+
+| Status Code | Meaning               |
+| ----------- | --------------------- |
+| 400         | Invalid request       |
+| 401         | Unauthorized          |
+| 402         | Payment failed        |
+| 500         | Internal server error |
+
+
+Example Error:
+
+{
+  "error": {
+    "type": "invalid_request",
+    "message": "Amount must be greater than zero"
+  }
+}
+
+---
+
+## Edge Cases
+
+- Payment declined by issuing bank
+
+- Invalid currency code
+
+- Duplicate transaction request
+
+- Insufficient customer balance
+
+---
+
+## Retrieve Payment
+
+### HTTP Method
+GET
+
+---
+
+### URL
+/payments/{payment_id}
+
+---
+
+### Description
+
+Retrieves details of a specific payment transaction.
+
+| Parameter  | Type   | Description       |
+| ---------- | ------ | ----------------- |
+| payment_id | string | Unique payment ID |
+
+---
+
+Example Request
+
+GET /payments/pay_9384723
+
+---
+
+### JSON Response
+
+{
+  "id": "pay_9384723",
+  "status": "succeeded",
+  "amount": 5000,
+  "currency": "USD",
+  "customer_id": "cus_847382",
+  "created_at": "2026-03-11T10:20:45Z"
+}
+
+---
+
+## Refund Payment
+
+### HTTP Method
+POST
+
+---
+
+### URL
+/payments/{payment_id}/refund
+
+---
+
+### Description
+
+Refunds a previously completed payment.
+
+---
+
+### Request Body
+
+| Parameter | Type    | Required | Description   |
+| --------- | ------- | -------- | ------------- |
+| amount    | integer | No       | Refund amount |
+
+---
+
+Example Request
+
+{
+  "amount": 5000
+}
+
+---
+
+Response Example
+
+{
+  "refund_id": "ref_827382",
+  "payment_id": "pay_9384723",
+  "status": "processed",
+  "amount": 5000
+}
+
+---
+
+### Error Responses
+
+| Code | Description              |
+| ---- | ------------------------ |
+| 404  | Payment not found        |
+| 409  | Payment already refunded |
+| 402  | Refund failed            |
+
+---
+
+## List Payments
+
+### HTTP Method
+GET
+
+---
+### URL
+/payments
+
+---
+
+### Query Parameters
+
+| Parameter      | Type    | Description       |
+| -------------- | ------- | ----------------- |
+| limit          | integer | Number of records |
+| starting_after | string  | Pagination cursor |
+
+
+Response Example
+
+{
+  "data": [
+    {
+      "id": "pay_123",
+      "amount": 2000,
+      "currency": "USD",
+      "status": "succeeded"
+    }
+  ],
+  "has_more": false
+}
+
+---
+
+# Rate Limiting
+
+The API limits requests to:
+100 requests per minute per API key
+
+If exceeded, the API returns:
+HTTP 429 Too Many Requests
+
+Example:
+
+{
+  "error": "Rate limit exceeded"
+}
+
+---
+
+# Pagination
+
+Endpoints that return lists support cursor-based pagination.
+
+## Parameters:
+
+| Parameter      | Description               |
+| -------------- | ------------------------- |
+| limit          | Number of items to return |
+| starting_after | Cursor for next page      |
+
+Example:
+GET /payments?limit=20&starting_after=pay_123
+
+---
+
+# Webhooks
+
+Webhooks notify your application when payment events occur.
+
+Example Events
+
+| Event             | Description       |
+| ----------------- | ----------------- |
+| payment.succeeded | Payment completed |
+| payment.failed    | Payment declined  |
+| refund.processed  | Refund successful |
+
+Webhook Payload Example
+
+{
+  "event": "payment.succeeded",
+  "data": {
+    "payment_id": "pay_9384723",
+    "amount": 5000,
+    "currency": "USD"
+  }
+}
+
+---
+
+# Best Practices
+- Secure Your API Keys
+
+- Never expose secret keys in client-side code.
+
+- Implement Idempotency
+
+- Use idempotency keys to prevent duplicate transactions.
+
+- Handle Failures Gracefully
+
+- Always handle payment failures and retry logic.
+
+- Verify Webhook Signatures
+
+- Ensure webhook requests originate from the payment provider.
+
+---
+
+# Common Errors & Troubleshooting
+
+| Error               | Cause                     | Solution                               |
+| ------------------- | ------------------------- | -------------------------------------- |
+| Unauthorized        | Invalid API key           | Verify Authorization header            |
+| Invalid request     | Incorrect parameters      | Check request body                     |
+| Payment failed      | Bank declined transaction | Prompt user for another payment method |
+| Rate limit exceeded | Too many requests         | Implement retry with backoff           |
+
+---
+
+Quick Start Example
+
+Create a payment using curl.
+
+curl -X POST https://api.payflowcloud.com/v1/payments \
+  -H "Authorization: Bearer sk_live_91dhdh82hdk2hd82h" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "amount": 5000,
+    "currency": "USD",
+    "customer_id": "cus_847382",
+    "payment_method": "card",
+    "description": "Premium subscription"
+  }'
+
+
+Successful response:
+
+{
+  "id": "pay_9384723",
+  "status": "succeeded",
+  "amount": 5000,
+  "currency": "USD"
+}
+
+Your application can now store the payment ID and confirm the transaction to the user.
+
+
