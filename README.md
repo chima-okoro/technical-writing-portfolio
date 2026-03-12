@@ -41,7 +41,7 @@ The document is written to support **backend and frontend developers integrating
 Example **customer-facing documentation** for a mobile safety application called **SafeTrip**.
 
 File:  
-`user-manuals/safetrip-user-manual.md`
+[`user-manuals/safetrip-user-manual.md`]
 
 This guide demonstrates how to write clear documentation for **non-technical users and small business customers**.
 
