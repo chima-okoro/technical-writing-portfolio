@@ -60,7 +60,7 @@ Beginner-friendly guide on using Microsoft Excel for data analysis, including fo
 ### 6. Linux Commands Guide
 Practical introduction to essential Linux commands for beginners, with examples and explanations.  
 
-👉 [View Project](./linux-commands.md)
+👉 [View Project](./linux-commands) 
 
 ---
 
