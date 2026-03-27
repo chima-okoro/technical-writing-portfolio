@@ -30,7 +30,7 @@ Designed for developers to integrate quickly and efficiently.
 Step-by-step guide to help new users understand and start using a product بسهولة and efficiently.  
 Focused on reducing onboarding friction and improving adoption.  
 
-👉 [View Project](./onboarding-guide.md)
+👉 [View Project](./onboarding-guide) 
 
 ---
 
