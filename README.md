@@ -1,186 +1,115 @@
-# Technical Writing Portfolio
+# Technical Writing Portfolio – Chima Okoro
 
-Welcome to my **Technical Writing Portfolio**.
+Welcome to my technical writing portfolio. I specialize in creating clear, structured, and user-friendly documentation for software, APIs, and engineering systems.
 
-I specialize in creating **clear, structured, and developer-friendly documentation** for SaaS products, APIs, and internal engineering processes. My work focuses on improving **developer experience, product usability, and engineering efficiency** through well-organized documentation.
-
-This repository showcases professional documentation examples commonly required in **modern software companies, SaaS startups, and remote engineering teams**.
+I help teams translate complex technical concepts into simple, actionable content that improves usability, onboarding, and user experience.
 
 ---
 
-# Documentation Samples
+## What I Do
 
-## API Documentation
-
-Example **developer-focused documentation** for a SaaS **Payment Processing API**.
-
-File:  
-`api-documentation/payment-processing-api.md` 
-
-This document demonstrates how to structure API documentation for developers integrating payment services.
-
-Key sections include:
-
-- API overview and versioning
-- Authentication setup
-- Endpoint documentation
-- Request and response examples
-- Error handling
-- Rate limiting
-- Pagination
-- Webhooks
-- Best practices
-- Quick start integration example
-
-The document is written to support **backend and frontend developers integrating payment systems into applications**.
+- API Documentation (REST APIs, authentication, endpoints)
+- User Guides & Onboarding Documentation
+- SOPs & Process Documentation
+- Software & Productivity Tutorials
+- Data & Workflow Documentation
 
 ---
 
-## User Guide Documentation
+## Portfolio Projects
 
-Example **customer-facing documentation** for a mobile safety application called **SafeTrip**.
+### 1. API Documentation
+Structured API documentation covering authentication, endpoints, request/response formats, and error handling.  
+Designed for developers to integrate quickly and efficiently.  
 
-File:  
-[`user-manuals/safetrip-user-manual.md`]
-
-This guide demonstrates how to write clear documentation for **non-technical users and small business customers**.
-
-Key elements include:
-
-- Product introduction and benefits
-- System requirements
-- Installation and account setup
-- Dashboard overview
-- Step-by-step feature instructions
-- Settings and customization
-- Security and privacy information
-- Frequently asked questions
-- Troubleshooting guidance
-- Customer support information
-
-The manual focuses on **clear instructions, minimal technical jargon, and user-friendly explanations**.
+👉 [View Project](./api-documentation.md)
 
 ---
 
-## Standard Operating Procedure (SOP)
+### 2. User Onboarding Guide
+Step-by-step guide to help new users understand and start using a product بسهولة and efficiently.  
+Focused on reducing onboarding friction and improving adoption.  
 
-Example **internal engineering documentation** for technical issue escalation and bug reporting.
-
-File:  
-`sop-documents/technical-issue-escalation-sop.md`
-
-This SOP demonstrates how internal processes are documented for engineering teams.
-
-Key sections include:
-
-- Purpose and scope
-- Roles and responsibilities
-- Required tools and system access
-- Step-by-step issue reporting procedures
-- Bug verification workflow
-- Engineering investigation process
-- Deployment and validation steps
-- Risk assessment and escalation path
-- Version history tracking
-
-The document emphasizes **repeatable processes, measurable outcomes, and clear escalation protocols**.
+👉 [View Project](./onboarding-guide.md)
 
 ---
 
-## Developer Onboarding Guide
+### 3. SOP Documentation
+Standard Operating Procedure (SOP) document outlining clear workflows and processes.  
+Designed for consistency, clarity, and ease of execution.  
 
-Example documentation designed to help **new developers join a fast-growing startup engineering team**.
-
-File:  
-`developer-onboarding/jano-agri-developer-onboarding.md`
-
-This onboarding guide demonstrates documentation for **remote engineering teams**.
-
-Key sections include:
-
-- Company mission and product overview
-- Technology stack introduction
-- Developer access setup
-- Development environment configuration
-- Codebase structure explanation
-- Deployment workflow
-- Coding standards
-- Pull request process
-- Issue tracking and sprint workflow
-- Documentation guidelines
-- First-week onboarding checklist
-
-This guide helps new engineers **become productive quickly in a distributed development environment**.
+👉 [View Project](./sop-documentation.md)
 
 ---
 
-# Documentation Skills Demonstrated
+### 4. User Manual
+Comprehensive user manual covering product features, usage, and troubleshooting.  
+Organized for quick reference and user accessibility.  
 
-This portfolio demonstrates experience with:
-
-- API documentation
-- SaaS product documentation
-- End-user guides
-- Internal engineering documentation
-- Standard Operating Procedures (SOPs)
-- Developer onboarding documentation
-- Markdown documentation
-- Developer workflow documentation
-- Software process documentation
+👉 [View Project](./user-manual.md)
 
 ---
 
-# Tools and Technologies
+### 5. Excel Data Analysis Guide
+Beginner-friendly guide on using Microsoft Excel for data analysis, including formulas, charts, and PivotTables.  
 
-Documentation tools used in this portfolio include:
+👉 [View Project](./excel-data-analysis.md)
+
+---
+
+### 6. Linux Commands Guide
+Practical introduction to essential Linux commands for beginners, with examples and explanations.  
+
+👉 [View Project](./linux-commands.md)
+
+---
+
+### 7. Python Automation Guide
+Step-by-step tutorial on automating repetitive tasks using Python, including file handling and scripting examples.  
+
+👉 [View Project](./python-automation.md)
+
+---
+
+## Tools & Technologies
 
 - Markdown
-- Git
 - GitHub
-- Developer documentation structures
-- API documentation frameworks
-- SaaS documentation standards
-
-Additional familiarity with:
-
-- OpenAPI / Swagger documentation
-- Documentation diagrams (Mermaid)
-- Knowledge bases
-- Developer portals
+- Notion
+- Confluence
+- Microsoft Office Suite
 
 ---
 
-# Writing Approach
+## My Approach
 
-My documentation approach focuses on:
-
-- Clarity and simplicity
-- Structured technical communication
-- Developer-friendly examples
-- Consistent terminology
-- Logical document structure
-- Actionable instructions
-- Documentation that supports both developers and end users
-
-I aim to create documentation that **reduces onboarding time, improves developer productivity, and enhances product adoption**.
+I focus on:
+- Clarity over complexity  
+- Structured and easy-to-navigate content  
+- Writing for both technical and non-technical audiences  
+- Creating documentation that solves real user problems  
 
 ---
 
-# About Me
+## About Me
 
-I am a **technical writer focused on software documentation, developer experience, and SaaS product documentation**.
+I am a Technical Writer with a background in Petroleum Engineering and experience documenting engineering processes, data workflows, and software systems.
 
-My goal is to help engineering teams and users **understand complex systems through clear, well-structured documentation**.
-
-I enjoy working with **engineering teams, product managers, and startups** to produce documentation that scales with growing software products.
+I bring a unique ability to bridge technical depth with clear communication.
 
 ---
 
-# Contact
+## Contact
 
-For collaboration or opportunities:
-
-**LinkedIn:** https://www.linkedin.com/in/chima-okoro-768a2a13a  
-**Email:** okorochima32@gmail.com
+📧 Email: okorochima32@gmail.com  
+🔗 LinkedIn: https://www.linkedin.com/in/chima-okoro-768a2a13a  
 
 ---
+
+## Availability
+
+I am open to remote technical writing roles (freelance or full-time) and available to start immediately.
+
+---
+
+> If you're looking for clear, user-focused documentation that improves product experience, feel free to reach out.
