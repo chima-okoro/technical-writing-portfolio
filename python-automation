@@ -1,0 +1,96 @@
+# How to Automate Tasks Using Python (Step-by-Step)
+
+## Introduction
+Python is a powerful language for automating repetitive tasks such as file handling, data processing, and system operations.
+
+This guide will show you how to automate simple tasks using Python.
+
+---
+
+## What You’ll Learn
+- Automating file operations
+- Running scripts
+- Writing simple automation programs
+
+---
+
+## Step 1: Install Python
+
+Download Python from:
+https://www.python.org
+
+Verify installation:
+```bash
+python --version
+
+---
+
+## Step 2: Write Your First Script
+
+Create a file called `script.py`:
+
+print("Hello, Automation!") 
+
+Run it:
+python script.py
+
+---
+
+## Step 3: Automate File Renaming
+
+Example: Rename multiple files
+
+import os
+
+folder = "files"
+
+for count, filename in enumerate(os.listdir(folder)):
+    new_name = f"file_{count}.txt"
+    os.rename(os.path.join(folder, filename),
+              os.path.join(folder, new_name)) 
+
+---
+
+## Step 4: Automate File Reading
+
+with open("data.txt", "r") as file:
+    content = file.read()
+    print(content) 
+
+---
+
+## Step 5: Automate Tasks with Loops
+
+Example: Process multiple files
+
+import os
+
+for file in os.listdir():
+    if file.endswith(".txt"):
+        print(f"Processing {file}") 
+
+---
+
+## Step 6: Schedule Automation (Optional)
+
+Use Task Scheduler (Windows) or Cron (Linux)
+
+Example Cron Job:
+
+0 9 * * * python /path/script.py
+
+---
+
+## Best Practices
+
+- Test scripts before automation
+- Handle errors using try/except
+- Keep scripts simple and readable
+
+---
+
+## Conclusion
+
+Python makes automation easy and powerful. By learning basic scripting, you can save time and eliminate repetitive tasks.
+
+Start with simple scripts and gradually automate more complex workflows.
